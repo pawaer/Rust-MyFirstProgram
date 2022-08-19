@@ -3,17 +3,14 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
     loop {
-        let secret_number = rand::thread_rng().gen_range(1..=100);
+        println!("Guess a number!:");
 
         let mut entered_number = String::new();
 
-        println!("Guess a number!:");
-
         io::stdin().read_line(&mut entered_number).expect("Failed To Read line");
-
-        println!("You entered {entered_number}");
-        println!("expected number {secret_number}");
 
         let entered_number: u32 = match entered_number.trim().parse() {
             Ok(number) => number,
@@ -21,7 +18,6 @@ fn main() {
         };
 
         println!("You entered {entered_number}");
-
 
         match entered_number.cmp(&secret_number) {
             Ordering::Less => println!("Too Small!"),
