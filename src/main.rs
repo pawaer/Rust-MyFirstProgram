@@ -23,7 +23,10 @@ fn main() {
         match entered_number.cmp(&secret_number) {
             Ordering::Less => println!("Too Small!"),
             Ordering::Greater => println!("Too Big!"),
-            Ordering::Equal => println!("Jackpot!"),
+            Ordering::Equal => {
+                println!("Jackpot!");
+                break;
+            }
         }
     }
 }
