@@ -15,7 +15,10 @@ fn main() {
         println!("You entered {entered_number}");
         println!("expected number {secret_number}");
 
-        let entered_number: u32 = entered_number.trim().parse().expect("Please enter a number");
+        let entered_number: u32 = match entered_number.trim().parse() {
+            Ok(number) => number,
+            Err(_) => continue
+        };
 
         println!("You entered {entered_number}");
 
