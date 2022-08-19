@@ -3,11 +3,9 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    let secret_number = rand::thread_rng().gen_range(1..=100);
-
-    let mut entered_number = String::new();
-
     loop {
+        let secret_number = rand::thread_rng().gen_range(1..=100);
+
         let mut entered_number = String::new();
 
         println!("Guess a number!:");
